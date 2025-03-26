@@ -1,0 +1,63 @@
+This project is a simple AI-powered document reviewer that processes .docx files, extracts text, and generates concise feedback using Google Gemini AI. The backend is built with Express.js, while the frontend uses vanilla JavaScript for a lightweight user experience.
+
+Installation & Setup
+1. Clone the Repository
+
+git clone <repository-url>
+cd <project-folder>
+
+2. Install Dependencies
+Backend (Express.js) Setup
+Navigate to the backend directory and install required packages:
+
+npm install express multer mammoth cors @google/genai dotenv
+
+Frontend Setup
+No additional setup is required for the frontend—just ensure a local web server runs the HTML/JS files.
+
+3. Set Up API Key
+Create a .env file in the root directory [ **IMPORTANT : Even though the api key has been left public in this project, it's a major security and privacy risk and ya'll should be smarter than me ] 
+Add your Google Gemini AI API key: *key*
+
+GOOGLE_API_KEY=your-api-key-here
+
+4. Run the Server
+Start the backend with:
+
+node server.js
+
+It should now be running on http://localhost:5000.
+
+Usage:
+
+Uploading a Document
+
+Click on the "Choose File" button to select a .docx file.
+
+The file name will appear once selected.
+
+Click the "Submit" button to upload and process it.
+
+AI Feedback Generation:
+
+The server extracts raw text from the document using mammoth.
+
+The extracted text is sent to Google Gemini AI, which analyzes and returns feedback.
+
+The feedback is displayed in a structured, bullet-point format on the webpage.
+
+Key Functionalities:
+
+Backend (server.js):
+Handles File Uploads: Uses multer to process .docx files in memory.
+
+Extracts Text from Documents: mammoth parses the text while preserving readability.
+
+Calls Google Gemini AI: Sends extracted text to generate structured feedback.
+
+Returns AI Response: The API response is sent back to the frontend.
+
+Frontend (index.js):
+Handles File Selection & Upload: Captures user file input and sends it to the backend.
+
+Displays AI Feedback: Parses the AI response and renders it properly with bullet points.
